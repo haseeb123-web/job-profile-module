@@ -20,15 +20,53 @@ import { City } from './entities/city.entity';
 import { CitiesController } from './controllers/city.controller';
 import { CitiesService } from './services/city.service';
 import { CitiesRepository } from './repositories/city.repository';
+import { CompaniesController } from './controllers/companies.controller';
+import { CompaniesService } from './services/companies.service';
+import { CompaniesRepository } from './repositories/companies.repository';
+import { Companies } from './entities/companies.entity';
+import { Industries } from './entities/industry.entities';
+import { IndustriesController } from './controllers/industry.controller';
+import { IndustriesService } from './services/industry.service';
+import { IndustriesRepository } from './repositories/industry.repository';
+import { VisaType } from './entities/visa.entity';
+import { VisaTypeController } from './controllers/visa.controller';
+import { VisaTypeRepository } from './repositories/visa.repository';
+import { VisaTypeService } from './services/visa.service';
+import { JobCategory } from './entities/job-category.entity';
+import { JobCategoryController } from './controllers/job-category.controller';
+import { JobCategoryRepository } from './repositories/job-category.repositories';
+import { JobCategoryService } from './services/job-category.service';
+import { Experience } from './entities/experince.entity';
+import { ExperienceController } from './controllers/experince.controller';
+import { ExperienceService } from './services/experince.service';
+import { ExperienceRepository } from './repositories/experince.repository';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Certification, Portfolio, Reference , Country , City])],
+  imports: [
+    TypeOrmModule.forFeature([
+      Certification,
+      Portfolio,
+      Reference,
+      Country,
+      City,
+      Companies,
+      Industries,
+      VisaType,
+      JobCategory ,
+      Experience
+    ]),
+  ],
   controllers: [
     CertificationController,
     ReferenceController,
     PortfolioController,
     CountriesController,
-    CitiesController
+    CitiesController,
+    CompaniesController,
+    IndustriesController,
+    VisaTypeController,
+    JobCategoryController ,
+    ExperienceController
   ],
   providers: [
     PortfolioRepository,
@@ -39,15 +77,30 @@ import { CitiesRepository } from './repositories/city.repository';
     ReferenceService,
     CountriesService,
     CountriesRepository,
-    CitiesService ,
-    CitiesRepository
+    CitiesService,
+    CitiesRepository,
+    CompaniesService,
+    CompaniesRepository,
+    IndustriesService,
+    IndustriesRepository,
+    VisaTypeRepository,
+    VisaTypeService,
+    JobCategoryRepository,
+    JobCategoryService ,
+    ExperienceService ,
+    ExperienceRepository
   ],
   exports: [
     ReferenceService,
     PortfolioService,
     CertificationService,
     CountriesService,
-    CitiesService
+    CitiesService,
+    CompaniesService,
+    IndustriesService,
+    VisaTypeService,
+    JobCategoryService ,
+    ExperienceService
   ],
 })
 export class JobProfileModule {}

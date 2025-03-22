@@ -10,10 +10,10 @@ export class City {
   name: string;
 
   @CreateDateColumn({ name: 'created_at' })
-  createdAt: Date;
+  createdAt?: Date;
 
   @Column()
-  countryId: number;
+  countryId?: number;
 
   @ManyToOne(() => Country, country => country.cities)
   country: Country;

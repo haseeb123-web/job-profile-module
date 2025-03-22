@@ -10,6 +10,11 @@ import { JobProfileModule } from './job-profile/job-profile.module';
 import { Reference } from './job-profile/entities/references.entities';
 import { Country } from './job-profile/entities/country.entity';
 import { City } from './job-profile/entities/city.entity';
+import { Companies } from './job-profile/entities/companies.entity';
+import { Industries } from './job-profile/entities/industry.entities';
+import { VisaType } from './job-profile/entities/visa.entity';
+import { JobCategory } from './job-profile/entities/job-category.entity';
+import { Experience } from './job-profile/entities/experince.entity';
 
 @Module({
   imports: [
@@ -23,7 +28,18 @@ import { City } from './job-profile/entities/city.entity';
         username: config.get<string>('DB_USERNAME'),
         password: config.get<string>('DB_PASSWORD'),
         database: config.get<string>('DB_DATABASE'),
-        entities: [Certification, Portfolio, Reference, Country, City],
+        entities: [
+          Certification,
+          Portfolio,
+          Reference,
+          Country,
+          City,
+          Companies,
+          Industries,
+          VisaType,
+          JobCategory ,
+          Experience
+        ],
         synchronize: process.env.NODE_ENV !== 'production',
       }),
     }),
